@@ -22,7 +22,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-pdkg@fx&-xa!6%ef@*q!!3ge#zeb*ajl(5_skub&&n$dyg^vjp'
+SECRET_KEY = '------------------------------' #secret
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -124,33 +124,27 @@ WSGI_APPLICATION = 'viuboxSenseMi.wsgi.application'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 if DEBUG:
-    # DATABASES = {
-    #     'default': {
-    #         'ENGINE': 'django.db.backends.sqlite3',
-    #         'NAME': BASE_DIR / 'db.sqlite3',
-    #         'TEST_NAME': os.path.join(BASE_DIR, 'test_db.sqlite3'),
-    #     }
-    # }
+    
     DATABASES = {
         'default': {
-            'ENGINE': 'django.db.backends.postgresql',
-            'NAME': 'dfrcf0doul618o',
-            'USER': 'tufvdsisisjvnk',
-            'PASSWORD': 'a0f08b9f3034a8cc2288c98fc27c38e996276554f0096b6bba4df30fc20253a0',
-            'HOST': 'ec2-174-129-225-160.compute-1.amazonaws.com',
-            'PORT': '5432',
+            'ENGINE': '-----------------',
+            'NAME': '0000000000000000000000',
+            'USER': '0000000000000',
+            'PASSWORD': '000000000000000',
+            'HOST': '000000000000000000',
+            'PORT': '000',
         }
     }
 
 else:
     DATABASES = {
         'default': {
-            'ENGINE': 'django.db.backends.postgresql',
-            'NAME': 'dfrcf0doul618o',
-            'USER': 'tufvdsisisjvnk',
-            'PASSWORD': 'a0f08b9f3034a8cc2288c98fc27c38e996276554f0096b6bba4df30fc20253a0',
-            'HOST': 'ec2-174-129-225-160.compute-1.amazonaws.com',
-            'PORT': '5432',
+            'ENGINE': '-----------------',
+            'NAME': '0000000000000000000000',
+            'USER': '0000000000000',
+            'PASSWORD': '000000000000000',
+            'HOST': '000000000000000000',
+            'PORT': '000',
         }
     }
     # Password validation
