@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Page</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <!-- Viubox Plugin Loader CSS -->
+    <style>
+        .measurments_btn {
+            background-color: #6f928a;
+            color: white;
+            padding: 10px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin-top: 25px;
+            border-radius: 5px;
+            border: 1px solid;
+            /* cursor: pointer; */
+        }
+        #product-img-box, #product-img-box:active {
+            background-color: transparent;
+            padding: 10px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin-top: 25px;
+            border-radius: 5px;
+            border: 1px solid;
+            /* cursor: pointer; */
+        }
+        #product-img-box:visited {
+            background-color: transparent;
+            padding: 10px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin-top: 25px;
+            border-radius: 5px;
+            border: 1px solid;
+            /* cursor: pointer; */
+        }
+
+    </style>
+    
+
+</head>
+<body>
+    <div class="container ps-5">
+    <div class="row text-center">
+    <h1>This is index page to show {{products|length}} products with images</h1>
+    </div>
+    
+    
+    <div class="row">
+        {% for product in products %}
+        <div class="col-md-6 product-box mt-4 p-2">
+            <a id="product-img-box" class="measurments_btn myCustomButton" href="javascript:void(0)" data-sku="{{product.sku}}">
+                <img src="{{product.image.url}}" class="product-picture" height="360px" width="360px"
+                    alt="product picture with SKU - {{product.sku}}">
+                <div>{{product.name}} | SKU: {{product.sku}}</div>
+            </a>
+            <div>
+                <div>
+                    <a class="measurments_btn myCustomButton"
+                    href="javascript:void(0)" data-sku="{{product.sku}}">
+                    How Fit On You</a>
+                </div>
+                <div class="mt-2">
+                <a id="threed_btn_id" class="three_d_viewer_btn fitting-button btn btn-primary 
+                    viu-box-button viu-box-button-margin myCustomButton" href="javascript:void(0)" data-sku="{{product.sku}}">Try In 3D</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    </div>
+
+    
+    <!-- jQuery CDN-->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+        ></script>
+
+    <!-- Viubox Plugin Loader -->
+    
+    <script type="text/javascript">
+        window.onload = function () {
+            // console.log(document.getElementById('receiver'));
+            var receiver = document.getElementById('receiver').contentWindow;
+            $('body').on('click', '.myCustomButton', function () {
+                var pcode = $(this).attr("data-sku");
+                console.log("pcode for this msg is - " + pcode);
+                receiver.postMessage(pcode,
+                    'https://widget.viubox.com/index.html');
+            });
+        }
+    </script>
+    <!-- /Viubox Plugin Loader -->
+    <!-- /Viubox Plugin Loader CSS -->
+    <script type="text/javascript" src="https://widget.viubox.com/js/embed.js"></script>
+</body>
+</html>
